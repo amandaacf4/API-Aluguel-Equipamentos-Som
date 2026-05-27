@@ -29,7 +29,12 @@ const Aluguel = sequelize.define('Aluguel', {
 
 });
 
-Equipamento.hasMany(Aluguel);
-Aluguel.belongsTo(Equipamento);
+Equipamento.hasMany(Aluguel, {
+    foreignKey: 'EquipamentoId'
+});
+
+Aluguel.belongsTo(Equipamento, {
+    foreignKey: 'EquipamentoId'
+});
 
 module.exports = Aluguel;
